@@ -27,19 +27,12 @@ An advanced and interactive **GitHub User Finder** web application that allows u
 🌙 **Dark / Light Mode**
 - Theme toggle with persistent settings
 
-🔊 **Sound Effects**
-- Click, success, error & search sounds
-- Sound toggle option
-
 📤 **Export & Share**
 - Export profile data as **JSON**
 - Export profile summary as **Text**
 - Download profile **Screenshot**
 - Share or copy GitHub profile link
-
-📱 **Responsive Design**
-- Works smoothly on mobile, tablet & desktop
-
+  
 ---
 
 ## 🛠️ Tech Stack
@@ -70,3 +63,4 @@ Progressive Web App (PWA) support
 
 ## Live Preview 
 https://aayushparekh27.github.io/GitHub-User-Finder/
+
