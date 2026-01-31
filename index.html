@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub User Finder Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="particles"></div>
+    <div class="gradient-bg"></div>
+  </div>
+
+  <!-- Sound Toggle -->
+  <button class="sound-toggle" onclick="toggleSound()">
+    <i class="fas fa-volume-up"></i>
+  </button>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <div class="container">
+    <div class="app-card">
+      <header class="app-header">
+        <div class="logo">
+          <i class="fab fa-github"></i>
+          <h1>GitHub Finder </h1>
+        </div>
+        <p class="tagline">Advanced GitHub user analytics</p>
+      </header>
+
+      <div class="search-section">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter GitHub username (e.g., torvalds)"
+            autocomplete="off"
+          />
+          <button onclick="getUser()" id="search-btn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+        <p class="hint">Try: torvalds, mojombo, defunkt, gaearon, sophiebits</p>
+      </div>
+
+      <div id="result">
+        <div class="welcome-screen">
+          <div class="welcome-icon">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <h3>Search for a GitHub User</h3>
+          <p>Enter a username to see profile, repositories, activity timeline, and more</p>
+          <div class="sample-users">
+            <span class="sample-tag" onclick="fillUsername('torvalds')">torvalds</span>
+            <span class="sample-tag" onclick="fillUsername('gaearon')">gaearon</span>
+            <span class="sample-tag" onclick="fillUsername('sophiebits')">sophiebits</span>
+            <span class="sample-tag" onclick="fillUsername('mojombo')">mojombo</span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="app-footer">
+        <p>Made with <i class="fas fa-heart"></i> | <span id="api-remaining">60</span> API calls remaining</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Sound Elements -->
+  <audio id="searchSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" preload="auto"></audio>
+  <audio id="successSound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3" preload="auto"></audio>
+  <audio id="errorSound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3" preload="auto"></audio>
+  <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-click-button-1109.mp3" preload="auto"></audio>
+
+  <!-- Export Modal -->
+  <div id="exportModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3><i class="fas fa-download"></i> Export User Data</h3>
+      <div class="export-options">
+        <button onclick="exportAsJSON()" class="export-btn">
+          <i class="fas fa-file-code"></i>
+          <span>Export as JSON</span>
+        </button>
+        <button onclick="exportAsText()" class="export-btn">
+          <i class="fas fa-file-alt"></i>
+          <span>Export as Text</span>
+        </button>
+        <button onclick="takeScreenshot()" class="export-btn">
+          <i class="fas fa-camera"></i>
+          <span>Screenshot Profile</span>
+        </button>
+        <button onclick="shareProfile()" class="export-btn">
+          <i class="fas fa-share-alt"></i>
+          <span>Share Profile</span>
+        </button>
+      </div>
+      <div class="share-links" id="shareLinks">
+        <input type="text" id="profileLink" readonly>
+        <button onclick="copyProfileLink()">
+          <i class="fas fa-copy"></i> Copy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
